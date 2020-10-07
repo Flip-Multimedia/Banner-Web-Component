@@ -83,23 +83,25 @@ module.exports.CoreComponent = class BannerComponent {
    * @return {*} 
    */
   static render(component) {
-    const TYPES = require('../../utils.js').componentTypes;
+    const getStyles = require(__dirname + '/../../utils.js').componentTypes.getStyles;
 
     return `
-      <div style='${TYPES.getStyles(component, "base")}' class='banner base'>
-        <div style='${TYPES.getStyles(component, "overlay")}' class='overlay'>
-          <div style='${TYPES.getStyles(component, "content")}' class='content'>
-            <div class='container'>
-              <h2 style='${TYPES.getStyles(component, 'title')}'>
-                ${component.title}
-              </h2>
-              <p style='${TYPES.getStyles(component, 'body')}'>
-                ${component.content}
-              </p>
+      <div data-type='component' data-drag='no-drag' data-component-type="${component.type}" class='component-dynamic' style="${getStyles(component, 'wrap')}">
+        <div style='${getStyles(component, "base")}' class='banner base'>
+          <div style='${getStyles(component, "overlay")}' class='overlay'>
+            <div style='${getStyles(component, "content")}' class='content'>
+              <div class='container'>
+                <h2 data-attribute='title' style='${getStyles(component, 'title')}'>
+                  ${component.title}
+                </h2>
+                <p data-attribute='content' style='${getStyles(component, 'body')}'>
+                  ${component.content}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     `;
   }
 
