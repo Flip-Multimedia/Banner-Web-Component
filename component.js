@@ -187,7 +187,7 @@ module.exports.CoreComponent = class BannerComponent {
       new TYPES.EditorUIAttribute({
         label: 'Select alignment',
         uiInputType: 'selector',
-        UiInputSelectOptions: {
+        uiInputSelectOptions: {
           'Align Left': 'left',
           'Align Right': 'right',
           'Align Center': 'center'
