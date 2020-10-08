@@ -55,7 +55,7 @@ module.exports.CoreComponent = class BannerComponent {
       styles: {
         base: {
           width: '100%',
-          height: "inherit",
+          height: "100%",
         },
   
         overlay: {
@@ -180,6 +180,22 @@ module.exports.CoreComponent = class BannerComponent {
         uiInputType: 'textarea',
 
         targetAttribute: 'content'
+      })
+    ]));
+
+    ui.addSection(new TYPES.EditorUISection('Content Alignment', [
+      new TYPES.EditorUIAttribute({
+        label: 'Select alignment',
+        uiInputType: 'selector',
+        UIInputSelectOptions: {
+          'Align Left': 'left',
+          'Align Right': 'right',
+          'Align Center': 'center'
+        },
+
+        isStylesAttribute: true,
+        targetStyleElement: 'overlay',
+        targetAttribute: 'text-align'
       })
     ]));
 
