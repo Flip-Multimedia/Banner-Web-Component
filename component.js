@@ -55,7 +55,7 @@ module.exports.CoreComponent = class BannerComponent {
       styles: {
         base: {
           width: '100%',
-          height: "100%",
+          height: "500px",
         },
   
         overlay: {
@@ -180,6 +180,17 @@ module.exports.CoreComponent = class BannerComponent {
         uiInputType: 'textarea',
 
         targetAttribute: 'content'
+      })
+    ]));
+
+    ui.addSection(new TYPES.EditorUISection('Banner Dimensions', [
+      new TYPES.EditorUIAttribute({
+        label: 'Select alignment',
+        uiInputType: 'numberPx',
+
+        isStylesAttribute: true,
+        targetStyleElement: 'base',
+        targetAttribute: 'height'
       })
     ]));
 
